@@ -1,5 +1,5 @@
 workdir = './model/model120'
-seed = 50
+seed = 40
 apex = True
 
 n_fold = 8
@@ -26,8 +26,8 @@ optim = dict(
 model = dict(
     #name='se_resnext50_32x4d',
     #name='se_resnext101_32x4d',
-    name='densenet121',
-    pretrained='imagenet',
+    name='resnext101_32x16d_wsl',
+    pretrained='facebookresearch/WSL-Images',
     n_output=6,
 )
 

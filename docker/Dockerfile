@@ -1,0 +1,4 @@
+FROM nvcr.io/nvidia/pytorch:19.09-py3
+
+RUN pip install albumentations==0.4.3
+RUN pip install pretrainedmodels==0.7.4
