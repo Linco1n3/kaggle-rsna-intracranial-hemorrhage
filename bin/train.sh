@@ -1,19 +1,26 @@
 #!/bin/bash
 gpu=0
 
-#ROOT=`/home/lincoln/kaggle-rsna-intracranial-hemorrhage/`
-#cd $ROOT
-
-root=/test
+root=/home/lincoln/kaggle-rsna-intracranial-hemorrhage/
 cd $root
-pwd
+
+# pwd
+# ls
+
+# pip install pandas
+# pip install sklearn
+# pip install pydicom
+# pip install addict
+pip uninstall Pillow
+pip install Pillow==6.1
+
 
 train() {
     model=$1
     fold=$2
-
     conf=./conf/${model}.py
     python -m src.cnn.main train ${conf} --fold ${fold} --gpu ${gpu}
+    #python ./src/cnn/main.py train ${conf} --fold ${fold} --gpu ${gpu}
 }
 
 #train model100 0
