@@ -1,4 +1,17 @@
+root=/home/lincoln/kaggle-rsna-intracranial-hemorrhage/
+cd $root
+
 mkdir -p cache model meta submission
+
+pip uninstall Pillow
+pip install Pillow==6.1
+pip install opencv-python
+pip install pandas
+pip install sklearn
+pip install pydicom
+pip install addict
+pip install albumentations==0.4.3
+pip install pretrainedmodels==0.7.4
 
 # train
 python -m src.preprocess.dicom_to_dataframe --input ./input/stage_2_train.csv --output ./cache/train_raw.pkl --imgdir ./input/stage_2_train_images

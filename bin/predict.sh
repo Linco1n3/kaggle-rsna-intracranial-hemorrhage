@@ -1,3 +1,7 @@
+#!/bin/bash
+root=/home/lincoln/kaggle-rsna-intracranial-hemorrhage/
+cd $root
+
 gpu=0
 tta=5
 
@@ -25,7 +29,8 @@ predict_test() {
     python -m src.cnn.main test ${conf} --snapshot ${snapshot} --output ${test} --n-tta ${tta} --fold ${fold} --gpu ${gpu}
 }
 
-
+#experiment 0
+##############################################################################
 predict_valid model100 0 2
 predict_valid model100 0 3
 predict_valid model100 1 2
@@ -43,23 +48,22 @@ predict_valid model100 6 3
 predict_valid model100 7 2
 predict_valid model100 7 3
 
-predict_valid model110 0 2
-predict_valid model110 0 3
-predict_valid model110 1 2
-predict_valid model110 1 3
-predict_valid model110 2 2
-predict_valid model110 2 3
-predict_valid model110 3 2
-predict_valid model110 3 3
-predict_valid model110 4 2
-predict_valid model110 4 3
-predict_valid model110 5 2
-predict_valid model110 5 3
-predict_valid model110 6 2
-predict_valid model110 6 3
-predict_valid model110 7 2
-predict_valid model110 7 3
-
+predict_valid model110 0 1
+predict_valid model110 0 1
+predict_valid model110 1 1
+predict_valid model110 1 1
+predict_valid model110 2 1
+predict_valid model110 2 1
+predict_valid model110 3 1
+predict_valid model110 3 1
+predict_valid model110 4 1
+predict_valid model110 4 1
+predict_valid model110 5 1
+predict_valid model110 5 1
+predict_valid model110 6 1
+predict_valid model110 6 1
+predict_valid model110 7 1
+predict_valid model110 7 1
 
 predict_test model100 0 2
 predict_test model100 0 3
@@ -78,19 +82,91 @@ predict_test model100 6 3
 predict_test model100 7 2
 predict_test model100 7 3
 
-predict_test model110 0 2
-predict_test model110 0 3
-predict_test model110 1 2
-predict_test model110 1 3
-predict_test model110 2 2
-predict_test model110 2 3
-predict_test model110 3 2
-predict_test model110 3 3
-predict_test model110 4 2
-predict_test model110 4 3
-predict_test model110 5 2
-predict_test model110 5 3
-predict_test model110 6 2
-predict_test model110 6 3
-predict_test model110 7 2
-predict_test model110 7 3
+predict_test model110 0 1
+predict_test model110 0 1
+predict_test model110 1 1
+predict_test model110 1 1
+predict_test model110 2 1
+predict_test model110 2 1
+predict_test model110 3 1
+predict_test model110 3 1
+predict_test model110 4 1
+predict_test model110 4 1
+predict_test model110 5 1
+predict_test model110 5 1
+predict_test model110 6 1
+predict_test model110 6 1
+predict_test model110 7 1
+predict_test model110 7 1
+##############################################################################
+
+
+
+# predict_valid model100 0 2
+# predict_valid model100 0 3
+# predict_valid model100 1 2
+# predict_valid model100 1 3
+# predict_valid model100 2 2
+# predict_valid model100 2 3
+# predict_valid model100 3 2
+# predict_valid model100 3 3
+# predict_valid model100 4 2
+# predict_valid model100 4 3
+# predict_valid model100 5 2
+# predict_valid model100 5 3
+# predict_valid model100 6 2
+# predict_valid model100 6 3
+# predict_valid model100 7 2
+# predict_valid model100 7 3
+
+# predict_valid model110 0 2
+# predict_valid model110 0 3
+# predict_valid model110 1 2
+# predict_valid model110 1 3
+# predict_valid model110 2 2
+# predict_valid model110 2 3
+# predict_valid model110 3 2
+# predict_valid model110 3 3
+# predict_valid model110 4 2
+# predict_valid model110 4 3
+# predict_valid model110 5 2
+# predict_valid model110 5 3
+# predict_valid model110 6 2
+# predict_valid model110 6 3
+# predict_valid model110 7 2
+# predict_valid model110 7 3
+
+
+# predict_test model100 0 2
+# predict_test model100 0 3
+# predict_test model100 1 2
+# predict_test model100 1 3
+# predict_test model100 2 2
+# predict_test model100 2 3
+# predict_test model100 3 2
+# predict_test model100 3 3
+# predict_test model100 4 2
+# predict_test model100 4 3
+# predict_test model100 5 2
+# predict_test model100 5 3
+# predict_test model100 6 2
+# predict_test model100 6 3
+# predict_test model100 7 2
+# predict_test model100 7 3
+
+# predict_test model110 0 2
+# predict_test model110 0 3
+# predict_test model110 1 2
+# predict_test model110 1 3
+# predict_test model110 2 2
+# predict_test model110 2 3
+# predict_test model110 3 2
+# predict_test model110 3 3
+# predict_test model110 4 2
+# predict_test model110 4 3
+# predict_test model110 5 2
+# predict_test model110 5 3
+# predict_test model110 6 2
+# predict_test model110 6 3
+# predict_test model110 7 2
+# predict_test model110 7 3

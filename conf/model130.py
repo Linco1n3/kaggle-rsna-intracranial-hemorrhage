@@ -1,12 +1,12 @@
-workdir = './model/model120'
-seed = 40
+workdir = './model/model130'
+seed = 60
 apex = True
 
 n_fold = 8
 epoch = 4
-resume_from = None
+resume_from = './model/model130/fold3_ep0.pt'
 
-batch_size = 20
+batch_size = 16
 num_workers = 4
 imgsize = (480, 480) #(height, width)
 #imgsize = (224, 224) #(height, width)
@@ -19,14 +19,14 @@ loss = dict(
 optim = dict(
     name='Adam',
     params=dict(
-        lr=1.4e-4,
+        lr=0.00002,
     ),
 )
 
 model = dict(
     #name='se_resnext50_32x4d',
     #name='se_resnext101_32x4d',
-    name='resnext101_32x16d_wsl',
+    name='resnext101_32x8d_wsl',
     pretrained='facebookresearch/WSL-Images',
     n_output=6,
 )

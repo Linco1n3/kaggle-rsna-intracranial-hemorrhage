@@ -4,21 +4,21 @@ gpu=0
 root=/home/lincoln/kaggle-rsna-intracranial-hemorrhage/
 cd $root
 
-# pwd
-# ls
-
+# pip uninstall Pillow
+# pip install Pillow==6.1
+# pip install opencv-python
 # pip install pandas
 # pip install sklearn
 # pip install pydicom
 # pip install addict
-pip uninstall Pillow
-pip install Pillow==6.1
-
+# pip install albumentations==0.4.3
+# pip install pretrainedmodels==0.7.4
 
 train() {
     model=$1
     fold=$2
     conf=./conf/${model}.py
+    pwd
     python -m src.cnn.main train ${conf} --fold ${fold} --gpu ${gpu}
     #python ./src/cnn/main.py train ${conf} --fold ${fold} --gpu ${gpu}
 }
@@ -43,8 +43,8 @@ train() {
 
 #train model120 0
 #train model120 1
-#train model120 2
-train model120 3
+train model120 2
+#train model120 3
 #train model120 4
 #train model120 5
 #train model120 6

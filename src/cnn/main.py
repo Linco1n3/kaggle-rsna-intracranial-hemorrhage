@@ -38,7 +38,7 @@ def main():
 
     args = get_args()
     cfg = Config.fromfile(args.config)
-
+ 
     # copy command line args to cfg
     cfg.mode = args.mode
     cfg.debug = args.debug
@@ -49,6 +49,8 @@ def main():
     cfg.gpu = args.gpu
 
     logger.setup(cfg.workdir, name='%s_fold%d' % (cfg.mode, cfg.fold))
+    log(f'availble_gpu: {torch.cuda.device_count()}')
+    log(f'will work on gpu: {cfg.gpu}')
     torch.cuda.set_device(cfg.gpu)
     util.set_seed(cfg.seed)
 
@@ -109,6 +111,7 @@ def train(cfg, model):
             'score': detail['score'],
             'epoch': detail['epoch'],
         })
+        log('resume from %s' % cfg.resume_from)
 
     folds = [fold for fold in range(cfg.n_fold) if cfg.fold != fold]
     loader_train = factory.get_dataloader(cfg.data.train, folds)

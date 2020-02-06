@@ -12,3 +12,6 @@ catboost_info/
 *.py[cod]
 
 misc.ipynb
+
+core.162
+*.DS_Store

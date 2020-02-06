@@ -6,7 +6,7 @@ n_fold = 8
 epoch = 4
 resume_from = None
 
-batch_size = 20
+batch_size = 16
 num_workers = 4
 imgsize = (480, 480) #(height, width)
 #imgsize = (224, 224) #(height, width)
@@ -19,14 +19,14 @@ loss = dict(
 optim = dict(
     name='Adam',
     params=dict(
-        lr=1.4e-4,
+        lr=0.00002,
     ),
 )
 
 model = dict(
     #name='se_resnext50_32x4d',
     #name='se_resnext101_32x4d',
-    name='densenet121',
+    name='',
     pretrained='imagenet',
     n_output=6,
 )
