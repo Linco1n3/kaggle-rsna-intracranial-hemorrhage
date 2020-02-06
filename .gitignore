@@ -15,3 +15,5 @@ misc.ipynb
 
 core.162
 *.DS_Store
+._core.162
+demo/._windowing.png
