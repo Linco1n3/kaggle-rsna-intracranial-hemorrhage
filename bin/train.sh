@@ -33,7 +33,7 @@ train() {
 #train model100 7
 
 #train model110 0
-#train model110 1
+train model110 1
 #train model110 2
 #train model110 3
 #train model110 4
@@ -43,7 +43,7 @@ train() {
 
 #train model120 0
 #train model120 1
-train model120 2
+#train model120 2
 #train model120 3
 #train model120 4
 #train model120 5

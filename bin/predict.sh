@@ -30,77 +30,49 @@ predict_test() {
 }
 
 #experiment 0
-##############################################################################
+# model100_fold0 epoch 2, 3
+# model120_fold2 epoch 2, 3
+############################################################################
 predict_valid model100 0 2
 predict_valid model100 0 3
-predict_valid model100 1 2
-predict_valid model100 1 3
-predict_valid model100 2 2
-predict_valid model100 2 3
-predict_valid model100 3 2
-predict_valid model100 3 3
-predict_valid model100 4 2
-predict_valid model100 4 3
-predict_valid model100 5 2
-predict_valid model100 5 3
-predict_valid model100 6 2
-predict_valid model100 6 3
-predict_valid model100 7 2
-predict_valid model100 7 3
-
-predict_valid model110 0 1
-predict_valid model110 0 1
-predict_valid model110 1 1
-predict_valid model110 1 1
-predict_valid model110 2 1
-predict_valid model110 2 1
-predict_valid model110 3 1
-predict_valid model110 3 1
-predict_valid model110 4 1
-predict_valid model110 4 1
-predict_valid model110 5 1
-predict_valid model110 5 1
-predict_valid model110 6 1
-predict_valid model110 6 1
-predict_valid model110 7 1
-predict_valid model110 7 1
+predict_valid model120 2 2
+predict_valid model120 2 3
 
 predict_test model100 0 2
 predict_test model100 0 3
-predict_test model100 1 2
-predict_test model100 1 3
-predict_test model100 2 2
-predict_test model100 2 3
-predict_test model100 3 2
-predict_test model100 3 3
-predict_test model100 4 2
-predict_test model100 4 3
-predict_test model100 5 2
-predict_test model100 5 3
-predict_test model100 6 2
-predict_test model100 6 3
-predict_test model100 7 2
-predict_test model100 7 3
+predict_test model120 2 2
+predict_test model120 2 3
+############################################################################
 
-predict_test model110 0 1
-predict_test model110 0 1
-predict_test model110 1 1
-predict_test model110 1 1
-predict_test model110 2 1
-predict_test model110 2 1
-predict_test model110 3 1
-predict_test model110 3 1
-predict_test model110 4 1
-predict_test model110 4 1
-predict_test model110 5 1
-predict_test model110 5 1
-predict_test model110 6 1
-predict_test model110 6 1
-predict_test model110 7 1
-predict_test model110 7 1
-##############################################################################
+#experiment 1
+# model100_fold0 epoch 2, 3
+# model130_fold7 epoch 2, 3
+############################################################################
+# predict_valid model100 0 2
+# predict_valid model100 0 3
+# predict_valid model130 7 2
+# predict_valid model130 7 3
 
+# predict_test model100 0 2
+# predict_test model100 0 3
+# predict_test model130 7 2
+# predict_test model130 7 3
+############################################################################
 
+#experiment 2
+# model130_fold7 epoch 2, 3
+# model120_fold2 epoch 2, 3
+############################################################################
+# predict_valid model130 7 2
+# predict_valid model130 7 3
+# predict_valid model120 2 2
+# predict_valid model120 2 3
+
+# predict_test model130 7 2
+# predict_test model130 7 3
+# predict_test model120 2 2
+# predict_test model120 2 3
+############################################################################
 
 # predict_valid model100 0 2
 # predict_valid model100 0 3

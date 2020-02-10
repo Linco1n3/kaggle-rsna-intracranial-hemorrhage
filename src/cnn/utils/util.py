@@ -43,7 +43,8 @@ def load_model(path, model, optim=None):
         optim.load_state_dict(state['optim'])
     else:
         log('not loading optim')
-
+    
+    
     model.cuda()
 
     detail = state['detail']

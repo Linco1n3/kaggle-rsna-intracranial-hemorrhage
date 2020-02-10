@@ -17,3 +17,7 @@ core.162
 *.DS_Store
 ._core.162
 demo/._windowing.png
+
+*.ipynb
+*.vscode
+*.ipynb_checkpoints
