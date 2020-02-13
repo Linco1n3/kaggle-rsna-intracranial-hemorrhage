@@ -51,3 +51,22 @@ def load_model(path, model, optim=None):
     log('loaded model from %s' % path)
 
     return detail
+
+def load_model_extract(path, model, optim=None):
+    # remap everthing onto CPU 
+    state = torch.load(str(path), map_location=lambda storage, location: storage)
+    model.fc = torch.nn.Linear(1024, 6)
+    
+    model.load_state_dict(state['model'])
+    if optim:
+        log('loading optim too')
+        optim.load_state_dict(state['optim'])
+    else:
+        log('not loading optim')
+    
+    model.cuda()
+
+    detail = state['detail']
+    log('loaded model from %s' % path)
+
+    return detail

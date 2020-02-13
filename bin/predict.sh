@@ -33,15 +33,15 @@ predict_test() {
 # model100_fold0 epoch 2, 3
 # model120_fold2 epoch 2, 3
 ############################################################################
-predict_valid model100 0 2
-predict_valid model100 0 3
-predict_valid model120 2 2
-predict_valid model120 2 3
+#predict_valid model100 0 2
+#predict_valid model100 0 3
+#predict_valid model120 2 2
+#predict_valid model120 2 3
 
-predict_test model100 0 2
-predict_test model100 0 3
-predict_test model120 2 2
-predict_test model120 2 3
+#predict_test model100 0 2
+#predict_test model100 0 3
+#predict_test model120 2 2
+#predict_test model120 2 3
 ############################################################################
 
 #experiment 1
@@ -60,16 +60,16 @@ predict_test model120 2 3
 ############################################################################
 
 #experiment 2
-# model130_fold7 epoch 2, 3
+# model110_fold1 epoch 2, 3
 # model120_fold2 epoch 2, 3
 ############################################################################
-# predict_valid model130 7 2
-# predict_valid model130 7 3
+#predict_valid model110 1 2
+#predict_valid model110 1 3
 # predict_valid model120 2 2
 # predict_valid model120 2 3
 
-# predict_test model130 7 2
-# predict_test model130 7 3
+#predict_test model110 1 2
+predict_test model110 1 3
 # predict_test model120 2 2
 # predict_test model120 2 3
 ############################################################################

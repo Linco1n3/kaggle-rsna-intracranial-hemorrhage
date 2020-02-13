@@ -207,6 +207,7 @@ def main():
     train_df = prepare_train_df(args)
 
     for gb_type in ['xgb', 'lgb', 'cat']:
+    #for gb_type in ['lgb']:
         oof_all, test_all, logloss_all = gb.run(train_df, test_df, gb_type)
 
         outputs = [{

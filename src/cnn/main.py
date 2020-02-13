@@ -23,7 +23,7 @@ from .utils.logger import logger, log
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['train', 'valid', 'test'])
+    parser.add_argument('mode', choices=['train', 'valid', 'test', 'embed'])
     parser.add_argument('config')
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--fold', type=int, required=True)
@@ -69,44 +69,47 @@ def main():
         valid(cfg, model)
     elif cfg.mode == 'test':
         test(cfg, model)
-    # elif cfg.mode == 'embed':
-    #     embed(cfg, model)
+    elif cfg.mode == 'embed':
+        embed(cfg, model)
         
-# class Identity(nn.Module):
-#     def __init__(self):
-#         super(Identity, self).__init__()
+class Identity(nn.Module):
+    def __init__(self):
+        super(Identity, self).__init__()
     
-#     def forward(self, x):
-#         return x
+    def forward(self, x):
+        return x
 
-# def embed(cfg, model):
-#     assert cfg.output
-#     log(f'\n load model')
-#     util.load_model(cfg.snapshot, model)
-#     log(f'\n--------output embedding---------')
+def embed(cfg, model):
+    assert cfg.output
+    log(f'\n--------output embedding---------')
     
-#     #folds = [fold for fold in range(cfg.n_fold) if cfg.fold != fold]
-#     loader_train = factory.get_dataloader(cfg.data.train, folds)
-#     loader_test = factory.get_dataloader(cfg.data.test, [cfg.fold])
-#     loader_valid = factory.get_dataloader(cfg.data.valid, [cfg.fold]) 
+    folds = [fold for fold in range(cfg.n_fold) if cfg.fold != fold]
+    loader_train = factory.get_dataloader(cfg.data.train, folds)
+    loader_test = factory.get_dataloader(cfg.data.test, [cfg.fold])
+    loader_valid = factory.get_dataloader(cfg.data.valid, [cfg.fold]) 
     
-#     log(f'\n Train shape {loader_train.shape}')
-#     log(f'\n Test shape {loader_test.shape}')
-#     log(f'\n Valid shape {loader_valid.shape}')
     
-#     for epoch in range(cfg.epoch):
-#         log(f'\n----- epoch {epoch} -----')
+    
+    log(f'\n Train shape {loader_train.shape}')
+    log(f'\n Test shape {loader_test.shape}')
+    log(f'\n Valid shape {loader_valid.shape}')
+    
+    for epoch in range(cfg.epoch):
+        log(f'\n----- epoch {epoch} -----')
+        log(f'\n load model')
+        util.load_model_extract(cfg.snapshot, model)
+        #extract embedding layer
+        model.eval()
+        model.module.fc = Identity()
+        model.eval()
         
-#         #extract embedding layer
-#         model.module.fc = Identity()
-#         model.eval()
-#         Datasets = ['train', 'test', 'valid']
-#         Loaders = []
-#         for typ, loader in zip(Datasets, Loaders):
-#             ls = []
-#             for step, batch in enumerate(loader):
-#                 if (step%100 == 0):
-#                     log(f'\n Embedding {typ} step {step} of {len(loader)}')    
+        Datasets = ['train', 'test', 'valid']
+        Loaders = []
+        for typ, loader in zip(Datasets, Loaders):
+            ls = []
+            for step, batch in enumerate(loader):
+                if (step%100 == 0):
+                    log(f'\n Embedding {typ} step {step} of {len(loader)}')    
 
 def test(cfg, model):
     assert cfg.output

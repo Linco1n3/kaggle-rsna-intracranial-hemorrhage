@@ -26,7 +26,7 @@ optim = dict(
 model = dict(
     #name='se_resnext50_32x4d',
     #name='se_resnext101_32x4d',
-    name='resnext101_32x8d',
+    name='resnext101_32x4d',
     pretrained='imagenet',
     n_output=6,
 )
